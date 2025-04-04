@@ -23,3 +23,8 @@ jobs:
       - name: Check formatting
         run: |
           terraform fmt -recursive -check
+      - name: Check documentation
+        uses: terraform-docs/gh-actions@v1.3.0
+        with:
+          working-dir: access,org-read
+          fail-on-diff: true
