@@ -34,7 +34,7 @@ variable "iam_path" {
 }
 
 variable "iam_region" {
-  description = "Region where IAM resouces should be created created. If this doesn't match the current region, resources are not created."
+  description = "Region where IAM resouces should be created. If you don't use us-east-1, set this to a region you do use."
   type        = string
   default     = "us-east-1"
 }
