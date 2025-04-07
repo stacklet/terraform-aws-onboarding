@@ -37,7 +37,7 @@ resource "aws_iam_role_policy" "execution_describe_augments" {
   policy = data.aws_iam_policy_document.describe_augments.json
 }
 
-# Additional user-provider roles to grant to execution
+# Additional user-provided roles to grant to execution
 resource "aws_iam_role" "execution_extra" {
   for_each = local.execution_extra_roles
 

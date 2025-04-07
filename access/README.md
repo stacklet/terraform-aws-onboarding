@@ -53,7 +53,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_execution_extra_roles"></a> [execution\_extra\_roles](#input\_execution\_extra\_roles) | Additional roles to grant to Stacklet for policies execution.<br/><br/>If provided, this must be a map from the role name (which gets the prefix<br/>prepended) and a list of permissions to grant to the role. | `map(list(string))` | `{}` | no |
+| <a name="input_execution_extra_roles"></a> [execution\_extra\_roles](#input\_execution\_extra\_roles) | Additional roles to grant to Stacklet for policies execution.<br/><br/>If provided, this must be a map from the role name (which gets the prefix<br/>prepended) and a list of permissions to grant to the role in addition to the<br/>default read-only permissions. | `map(list(string))` | `{}` | no |
 | <a name="input_iam_path"></a> [iam\_path](#input\_iam\_path) | A path for IAM created IAM roles. If set, it must include leading and trailing slashes | `string` | `"/"` | no |
 | <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region where IAM resouces should be created. If you don't use us-east-1, set this to a region you do use. | `string` | `"us-east-1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `any` | n/a | yes |
