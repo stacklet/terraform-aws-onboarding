@@ -4,10 +4,10 @@ resource "aws_iam_role" "discover" {
   name               = "${var.prefix}-discover"
   description        = "Read-Only Resource Collection for ${var.prefix} Stacklet deployment"
   path               = var.iam_path
-  assume_role_policy = data.aws_iam_policy_document.discover.json
+  assume_role_policy = data.aws_iam_policy_document.discover_assume.json
 }
 
-data "aws_iam_policy_document" "discover" {
+data "aws_iam_policy_document" "discover_assume" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {

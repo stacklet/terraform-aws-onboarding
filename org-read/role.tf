@@ -2,10 +2,10 @@ resource "aws_iam_role" "org_read" {
   name               = "${var.prefix}-org-read"
   description        = "Access to read accounts information for ${var.prefix} Stacklet deployment"
   path               = var.iam_path
-  assume_role_policy = data.aws_iam_policy_document.org_read.json
+  assume_role_policy = data.aws_iam_policy_document.org_read_assume.json
 }
 
-data "aws_iam_policy_document" "org_read" {
+data "aws_iam_policy_document" "org_read_assume" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {
