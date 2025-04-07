@@ -29,9 +29,9 @@ No modules.
 | [aws_iam_role.org_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy.tags_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
 | [aws_iam_role_policy_attachments_exclusive.org_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_iam_policy.org_read_only_access](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy) | data source |
 | [aws_iam_policy_document.org_read_assume](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.tags_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/partition) | data source |
 
 ## Inputs
 

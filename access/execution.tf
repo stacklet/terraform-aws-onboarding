@@ -26,7 +26,7 @@ resource "aws_iam_role_policy_attachments_exclusive" "execution" {
   count = local.create_iam_resources ? 1 : 0
 
   role_name   = aws_iam_role.execution[0].name
-  policy_arns = ["arn:${data.aws_partition.current.partition}:iam::aws:policy/ReadOnlyAccess"]
+  policy_arns = [data.aws_iam_policy.readonly_access.arn]
 }
 
 resource "aws_iam_role_policy" "execution_describe_augments" {
