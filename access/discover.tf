@@ -4,22 +4,20 @@ resource "aws_iam_role" "discover" {
   name               = "${var.prefix}-discover"
   description        = "Read-Only Resource Collection for ${var.prefix} Stacklet deployment"
   path               = var.iam_path
-  assume_role_policy = data.aws_iam_policy_document.discover.json
+  assume_role_policy = data.aws_iam_policy_document.discover_assume.json
 }
 
-data "aws_iam_policy_document" "discover" {
+data "aws_iam_policy_document" "discover_assume" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {
-      type = "AWS"
-      identifiers = [
-        "arn:${data.aws_partition.current.partition}:iam::${var.deployment_account}:role${var.deployment_iam_path}${var.deployment_prefix}-collector"
-      ]
+      type        = "AWS"
+      identifiers = [var.stacklet_assetdb_role_arn]
     }
     condition {
       test     = "StringEquals"
       variable = "sts:ExternalId"
-      values   = [var.deployment_external_id]
+      values   = [var.stacklet_external_id]
     }
   }
 }

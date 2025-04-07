@@ -54,8 +54,8 @@ resource "aws_cloudwatch_event_target" "forward" {
 
   target_id = "${var.prefix}-event-forward"
   rule      = aws_cloudwatch_event_rule.forward[0].name
-  arn       = "arn:${data.aws_partition.current.partition}:events:${data.aws_region.current.name}:${var.deployment_account}:event-bus/default"
-  role_arn  = "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:role${var.deployment_iam_path}${var.prefix}-forward"
+  arn       = var.stacklet_event_bus_arn
+  role_arn  = aws_iam_role.forward[0].arn
 }
 
 # Event forwarding role
@@ -90,6 +90,6 @@ resource "aws_iam_role_policy" "forward" {
 data "aws_iam_policy_document" "forward" {
   statement {
     actions   = ["events:PutEvents"]
-    resources = ["arn:${data.aws_partition.current.partition}:events:*:${var.deployment_account}:event-bus/default"]
+    resources = [var.stacklet_event_bus_arn]
   }
 }
