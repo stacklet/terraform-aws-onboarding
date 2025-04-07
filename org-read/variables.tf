@@ -1,26 +1,15 @@
-variable "deployment_account" {
-  description = "A destination account ID provided by Stacklet. This account hosts Stacklet platform resources"
+variable "stacklet_assetdb_role_arn" {
+  description = "ARN for the role used by AssetDB - Provided by Stacklet"
   type        = string
 }
 
-variable "deployment_prefix" {
-  description = "A prefix provided by Stacklet, associated with resources in the destination account"
+variable "stacklet_platform_role_arn" {
+  description = "ARN for the role used by Platform - Provided by Stacklet"
   type        = string
 }
 
-variable "deployment_iam_path" {
-  description = "Path for IAM roles ARNs provided by Stacklet.  If set, it must include leading and trailing slashes"
-  type        = string
-  default     = "/"
-
-  validation {
-    condition     = startswith(var.deployment_iam_path, "/") && endswith(var.deployment_iam_path, "/")
-    error_message = "IAM path must include leading and trailing slashes"
-  }
-}
-
-variable "deployment_external_id" {
-  description = "An ExternalId provided by Stacklet to restrict who can assume the roles and avoid the confused deputy issue"
+variable "stacklet_deployment_id" {
+  description = "ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet"
   type        = string
 }
 

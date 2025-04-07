@@ -1,26 +1,20 @@
-variable "deployment_account" {
-  description = "A destination account ID provided by Stacklet. This account hosts Stacklet platform resources"
+variable "stacklet_assetdb_role_arn" {
+  description = "ARN for the role used by AssetDB - Provided by Stacklet"
   type        = string
 }
 
-variable "deployment_prefix" {
-  description = "A prefix provided by Stacklet, associated with resources in the destination account"
+variable "stacklet_execution_role_arn" {
+  description = "ARN for the role used by policies Execution - Provided by Stacklet"
   type        = string
 }
 
-variable "deployment_iam_path" {
-  description = "Path for IAM roles ARNs provided by Stacklet.  If set, it must include leading and trailing slashes"
+variable "stacklet_event_bus_arn" {
+  description = "ARN for event bus used for event forwarding - Provided by Stacklet"
   type        = string
-  default     = "/"
-
-  validation {
-    condition     = startswith(var.deployment_iam_path, "/") && endswith(var.deployment_iam_path, "/")
-    error_message = "IAM path must include leading and trailing slashes"
-  }
 }
 
-variable "deployment_external_id" {
-  description = "An ExternalId provided by Stacklet to restrict who can assume the roles and avoid the confused deputy issue"
+variable "stacklet_deployment_id" {
+  description = "ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet"
   type        = string
 }
 
@@ -40,7 +34,7 @@ variable "iam_path" {
 }
 
 variable "iam_region" {
-  description = "Region for created IAM resouces. If this doesn't match"
+  description = "Region where IAM resouces should be created created. If this doesn't match the current region, resources are not created."
   type        = string
   default     = "us-east-1"
 }

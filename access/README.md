@@ -34,6 +34,7 @@ No modules.
 | [aws_iam_role_policy.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
 | [aws_iam_role_policy_attachments_exclusive.discover](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
 | [aws_iam_role_policy_attachments_exclusive.execution](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_arn.stacklet_assetdb_role_arn](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/arn) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.describe_augments](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.discover](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
@@ -47,13 +48,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_deployment_account"></a> [deployment\_account](#input\_deployment\_account) | A destination account ID provided by Stacklet. This account hosts Stacklet platform resources | `string` | n/a | yes |
-| <a name="input_deployment_external_id"></a> [deployment\_external\_id](#input\_deployment\_external\_id) | An ExternalId provided by Stacklet to restrict who can assume the roles and avoid the confused deputy issue | `string` | n/a | yes |
-| <a name="input_deployment_iam_path"></a> [deployment\_iam\_path](#input\_deployment\_iam\_path) | Path for IAM roles ARNs provided by Stacklet.  If set, it must include leading and trailing slashes | `string` | `"/"` | no |
-| <a name="input_deployment_prefix"></a> [deployment\_prefix](#input\_deployment\_prefix) | A prefix provided by Stacklet, associated with resources in the destination account | `string` | n/a | yes |
 | <a name="input_iam_path"></a> [iam\_path](#input\_iam\_path) | A path for IAM created IAM roles. If set, it must include leading and trailing slashes | `string` | `"/"` | no |
-| <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region for created IAM resouces. If this doesn't match | `string` | `"us-east-1"` | no |
+| <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region where IAM resouces should be created created. If this doesn't match the current region, resources are not created. | `string` | `"us-east-1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `any` | n/a | yes |
+| <a name="input_stacklet_assetdb_role_arn"></a> [stacklet\_assetdb\_role\_arn](#input\_stacklet\_assetdb\_role\_arn) | ARN for the role used by AssetDB - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_deployment_id"></a> [stacklet\_deployment\_id](#input\_stacklet\_deployment\_id) | ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_event_bus_arn"></a> [stacklet\_event\_bus\_arn](#input\_stacklet\_event\_bus\_arn) | ARN for event bus used for event forwarding - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_execution_role_arn"></a> [stacklet\_execution\_role\_arn](#input\_stacklet\_execution\_role\_arn) | ARN for the role used by policies Execution - Provided by Stacklet | `string` | n/a | yes |
 
 ## Outputs
 

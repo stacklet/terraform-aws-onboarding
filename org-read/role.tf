@@ -11,14 +11,14 @@ data "aws_iam_policy_document" "org_read" {
     principals {
       type = "AWS"
       identifiers = [
-        "arn:${data.aws_partition.current.partition}:iam::${var.deployment_account}:role${var.deployment_iam_path}${var.deployment_prefix}-collector",
-        "arn:${data.aws_partition.current.partition}:iam::${var.deployment_account}:role${var.deployment_iam_path}${var.deployment_prefix}-stacklet-platform",
+        var.stacklet_assetdb_role_arn,
+        var.stacklet_platform_role_arn,
       ]
     }
     condition {
       test     = "StringEquals"
       variable = "sts:ExternalId"
-      values   = [var.deployment_external_id]
+      values   = [var.stacklet_deployment_id]
     }
   }
 }
