@@ -8,7 +8,7 @@ variable "stacklet_platform_role_arn" {
   type        = string
 }
 
-variable "stacklet_deployment_id" {
+variable "stacklet_external_id" {
   description = "ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet"
   type        = string
 }

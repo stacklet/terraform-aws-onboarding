@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "execution" {
     condition {
       test     = "StringEquals"
       variable = "sts:ExternalId"
-      values   = [var.stacklet_deployment_id]
+      values   = [var.stacklet_external_id]
     }
   }
 }
