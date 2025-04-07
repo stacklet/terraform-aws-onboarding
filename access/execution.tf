@@ -32,14 +32,14 @@ resource "aws_iam_role_policy_attachments_exclusive" "execution" {
 resource "aws_iam_role_policy" "execution_describe_augments" {
   count = local.create_iam_resources ? 1 : 0
 
-  name   = "${var.prefix}-describe-augments"
+  name   = "DescribeAugments"
   role   = aws_iam_role.execution[0].id
   policy = data.aws_iam_policy_document.describe_augments.json
 }
 
 # Additional user-provider roles to grant to execution
 resource "aws_iam_role" "execution_extra" {
-  for_each = var.execution_extra_roles
+  for_each = local.execution_extra_roles
 
   name               = "${var.prefix}-execution-${each.key}"
   description        = "Execution for ${var.prefix} Stacklet deployment"
@@ -48,7 +48,7 @@ resource "aws_iam_role" "execution_extra" {
 }
 
 resource "aws_iam_role_policy" "execution_extra" {
-  for_each = var.execution_extra_roles
+  for_each = local.execution_extra_roles
 
   name   = "AllowedActions"
   role   = aws_iam_role.execution_extra[each.key].id
@@ -56,10 +56,25 @@ resource "aws_iam_role_policy" "execution_extra" {
 }
 
 data "aws_iam_policy_document" "execution_extra" {
-  for_each = var.execution_extra_roles
+  for_each = local.execution_extra_roles
 
   statement {
     actions   = each.value
     resources = ["*"]
   }
+}
+
+resource "aws_iam_role_policy_attachments_exclusive" "execution_extra" {
+  for_each = local.execution_extra_roles
+
+  role_name   = aws_iam_role.execution_extra[each.key].name
+  policy_arns = [data.aws_iam_policy.readonly_access.arn]
+}
+
+resource "aws_iam_role_policy" "execution_extra_describe_augments" {
+  for_each = local.execution_extra_roles
+
+  name   = "DescribeAugments"
+  role   = aws_iam_role.execution_extra[each.key].id
+  policy = data.aws_iam_policy_document.describe_augments.json
 }

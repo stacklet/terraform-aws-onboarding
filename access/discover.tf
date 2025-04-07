@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachments_exclusive" "discover" {
 resource "aws_iam_role_policy" "discover_describe_augments" {
   count = local.create_iam_resources ? 1 : 0
 
-  name   = "${var.prefix}-describe-augments"
+  name   = "DescribeAugments"
   role   = aws_iam_role.discover[0].id
   policy = data.aws_iam_policy_document.describe_augments.json
 }
