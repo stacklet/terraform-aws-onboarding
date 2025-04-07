@@ -38,3 +38,15 @@ variable "iam_region" {
   type        = string
   default     = "us-east-1"
 }
+
+variable "execution_extra_roles" {
+  description = <<-EOT
+Additional roles to grant to Stacklet for policies execution.
+
+If provided, this must be a map from the role name (which gets the prefix
+prepended) and a list of permissions to grant to the role in addition to the
+default read-only permissions.
+EOT
+  type        = map(list(string))
+  default     = {}
+}

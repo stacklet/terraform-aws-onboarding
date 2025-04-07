@@ -23,9 +23,13 @@ data "aws_iam_policy_document" "org_read_assume" {
   }
 }
 
+data "aws_iam_policy" "org_readonly_access" {
+  name = "AWSOrganizationsReadOnlyAccess"
+}
+
 resource "aws_iam_role_policy_attachments_exclusive" "org_read" {
   role_name   = aws_iam_role.org_read.name
-  policy_arns = ["arn:${data.aws_partition.current.partition}:iam::aws:policy/AWSOrganizationsReadOnlyAccess"]
+  policy_arns = [data.aws_iam_policy.org_readonly_access.arn]
 }
 
 resource "aws_iam_role_policy" "tags_read" {
