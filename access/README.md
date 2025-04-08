@@ -67,6 +67,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_discover_role"></a> [discover\_role](#output\_discover\_role) | ARN for the Stacklet collector role |
+| <a name="output_execution_extra_roles"></a> [execution\_extra\_roles](#output\_execution\_extra\_roles) | ARNs for extra policy execution roles |
 | <a name="output_execution_role"></a> [execution\_role](#output\_execution\_role) | ARN for the Stacklet execution role |
 | <a name="output_forward_role"></a> [forward\_role](#output\_forward\_role) | ARN for the Stacklet forwarder role |
 <!-- END_TF_DOCS -->

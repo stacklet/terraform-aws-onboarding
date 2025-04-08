@@ -1,0 +1,64 @@
+version: 3
+automerge: true
+delete_source_branch_on_merge: true
+parallel_plan: true
+parallel_apply: true
+
+projects:
+  - &common
+    name: .dummy
+    dir: .dummy
+    workflow: dev
+    terraform_version: v1.10.1
+    autoplan:
+      when_modified:
+        - "*.tf*"
+        - .terraform.lock.hcl
+    apply_requirements:
+      - approved
+      - mergeable
+  - <<: *common
+    name: access
+    dir: access
+  - <<: *common
+    name: org-read
+    dir: org-read
+
+workflows:
+  dev:
+    plan:
+      steps:
+        - env:
+            name: AWS_PROFILE
+            value: Dev
+        - env:
+            name: AWS_DEFAULT_REGION
+            value: us-east-2
+        - env:
+            name: AWS_REGION
+            value: us-east-2
+        - env:  # to avoid "text file busy" error when downloading providers
+            name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
+            value: "true"
+        - run: |
+            cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
+        - init
+        - plan
+
+    apply:
+      steps:
+        - env:
+            name: AWS_PROFILE
+            value: Try
+        - env:
+            name: AWS_DEFAULT_REGION
+            value: us-east-2
+        - env:
+            name: AWS_REGION
+            value: us-east-2
+        - env:  # to avoid "text file busy" error when downloading providers
+            name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
+            value: "true"
+        - run: |
+            cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
+        - apply
