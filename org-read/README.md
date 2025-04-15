@@ -47,5 +47,5 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_org_read_role"></a> [org\_read\_role](#output\_org\_read\_role) | ARN for the Stacklet read accounts role |
+| <a name="output_org_read_role"></a> [org\_read\_role](#output\_org\_read\_role) | ARN for the account-discovery role assumed by Stacklet Platform |
 <!-- END_TF_DOCS -->

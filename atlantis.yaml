@@ -42,6 +42,7 @@ workflows:
             value: "true"
         - run: |
             cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
+            cp ../atlantis/dev/${PROJECT_NAME}-backend.tf backend.tf
         - init
         - plan
 
@@ -49,7 +50,7 @@ workflows:
       steps:
         - env:
             name: AWS_PROFILE
-            value: Try
+            value: Dev
         - env:
             name: AWS_DEFAULT_REGION
             value: us-east-2
@@ -61,4 +62,5 @@ workflows:
             value: "true"
         - run: |
             cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
+            cp ../atlantis/dev/${PROJECT_NAME}-backend.tf backend.tf
         - apply
