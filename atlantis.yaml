@@ -50,7 +50,7 @@ workflows:
       steps:
         - env:
             name: AWS_PROFILE
-            value: Try
+            value: Dev
         - env:
             name: AWS_DEFAULT_REGION
             value: us-east-2
