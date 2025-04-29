@@ -27,6 +27,7 @@ variable "stacklet_external_id" {
 
 variable "prefix" {
   description = "An arbitrary prefix pretended to names of created resources"
+  type        = string
 }
 
 variable "iam_path" {
