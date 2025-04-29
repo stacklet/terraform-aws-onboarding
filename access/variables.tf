@@ -13,6 +13,13 @@ variable "stacklet_destination_account_id" {
   type        = string
 }
 
+
+variable "stacklet_target_event_bus_name" {
+  description = "Target event bus for event forwarding - Provided by Stacklet"
+  type        = string
+  default     = "default"
+}
+
 variable "stacklet_external_id" {
   description = "ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet"
   type        = string

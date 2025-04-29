@@ -21,6 +21,6 @@ locals {
     "events",
     data.aws_region.current.name,
     var.stacklet_destination_account_id,
-    "event-bus/default"
+    "event-bus/${var.stacklet_target_event_bus_name}"
   )
 }

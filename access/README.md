@@ -62,6 +62,7 @@ No modules.
 | <a name="input_stacklet_destination_account_id"></a> [stacklet\_destination\_account\_id](#input\_stacklet\_destination\_account\_id) | Destination account for event forwarding - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_execution_role_arn"></a> [stacklet\_execution\_role\_arn](#input\_stacklet\_execution\_role\_arn) | ARN for the role used by policies Execution - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_external_id"></a> [stacklet\_external\_id](#input\_stacklet\_external\_id) | ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_target_event_bus_name"></a> [stacklet\_target\_event\_bus\_name](#input\_stacklet\_target\_event\_bus\_name) | Target event bus for event forwarding - Provided by Stacklet | `string` | `"default"` | no |
 
 ## Outputs
 
