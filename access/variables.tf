@@ -8,7 +8,7 @@ variable "stacklet_execution_role_arn" {
   type        = string
 }
 
-variable "stacklet_host_account_id" {
+variable "stacklet_destination_account_id" {
   description = "Destination account for event forwarding - Provided by Stacklet"
   type        = string
 }

@@ -59,9 +59,9 @@ No modules.
 | <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region where IAM resouces should be created. If you don't use us-east-1, set this to a region you do use. | `string` | `"us-east-1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `any` | n/a | yes |
 | <a name="input_stacklet_assetdb_role_arn"></a> [stacklet\_assetdb\_role\_arn](#input\_stacklet\_assetdb\_role\_arn) | ARN for the role used by AssetDB - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_destination_account_id"></a> [stacklet\_destination\_account\_id](#input\_stacklet\_destination\_account\_id) | Destination account for event forwarding - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_execution_role_arn"></a> [stacklet\_execution\_role\_arn](#input\_stacklet\_execution\_role\_arn) | ARN for the role used by policies Execution - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_external_id"></a> [stacklet\_external\_id](#input\_stacklet\_external\_id) | ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet | `string` | n/a | yes |
-| <a name="input_stacklet_host_account_id"></a> [stacklet\_host\_account\_id](#input\_stacklet\_host\_account\_id) | Destination account for event forwarding - Provided by Stacklet | `string` | n/a | yes |
 
 ## Outputs
 
