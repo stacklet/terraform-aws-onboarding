@@ -89,7 +89,15 @@ resource "aws_iam_role_policy" "forward" {
 
 data "aws_iam_policy_document" "forward" {
   statement {
-    actions   = ["events:PutEvents"]
-    resources = [local.stacklet_event_bus_arn]
+    actions = ["events:PutEvents"]
+    resources = [
+      provider::aws::arn_build(
+        data.aws_partition.current.partition,
+        "events",
+        "*",
+        var.stacklet_destination_account_id,
+        "event-bus/default"
+      )
+    ]
   }
 }
