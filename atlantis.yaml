@@ -9,7 +9,7 @@ projects:
     name: .dummy
     dir: .dummy
     workflow: dev
-    terraform_version: v1.10.1
+    terraform_version: v1.11.3
     autoplan:
       when_modified:
         - "*.tf*"

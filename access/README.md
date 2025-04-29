@@ -8,6 +8,7 @@ AWS account.
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.94.0 |
 
 ## Providers
@@ -56,7 +57,7 @@ No modules.
 | <a name="input_execution_extra_roles"></a> [execution\_extra\_roles](#input\_execution\_extra\_roles) | Additional roles to grant to Stacklet for policies execution.<br/><br/>If provided, this must be a map from the role name (which gets the prefix<br/>prepended) and a list of permissions to grant to the role in addition to the<br/>default read-only permissions. | `map(list(string))` | `{}` | no |
 | <a name="input_iam_path"></a> [iam\_path](#input\_iam\_path) | A path for IAM created IAM roles. If set, it must include leading and trailing slashes | `string` | `"/"` | no |
 | <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region where IAM resouces should be created. If you don't use us-east-1, set this to a region you do use. | `string` | `"us-east-1"` | no |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `any` | n/a | yes |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `string` | n/a | yes |
 | <a name="input_stacklet_assetdb_role_arn"></a> [stacklet\_assetdb\_role\_arn](#input\_stacklet\_assetdb\_role\_arn) | ARN for the role used by AssetDB - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_event_bus_arn"></a> [stacklet\_event\_bus\_arn](#input\_stacklet\_event\_bus\_arn) | ARN for event bus used for event forwarding - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_execution_role_arn"></a> [stacklet\_execution\_role\_arn](#input\_stacklet\_execution\_role\_arn) | ARN for the role used by policies Execution - Provided by Stacklet | `string` | n/a | yes |
