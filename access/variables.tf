@@ -8,8 +8,8 @@ variable "stacklet_execution_role_arn" {
   type        = string
 }
 
-variable "stacklet_event_bus_arn" {
-  description = "ARN for event bus used for event forwarding - Provided by Stacklet"
+variable "stacklet_host_account_id" {
+  description = "Destination account for event forwarding - Provided by Stacklet"
   type        = string
 }
 
