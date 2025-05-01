@@ -41,7 +41,7 @@ No modules.
 | <a name="input_iam_path"></a> [iam\_path](#input\_iam\_path) | A path for IAM created IAM roles. If set, it must include leading and trailing slashes | `string` | `"/"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix pretended to names of created resources | `string` | n/a | yes |
 | <a name="input_stacklet_assetdb_role_arn"></a> [stacklet\_assetdb\_role\_arn](#input\_stacklet\_assetdb\_role\_arn) | ARN for the role used by AssetDB - Provided by Stacklet | `string` | n/a | yes |
-| <a name="input_stacklet_external_id"></a> [stacklet\_external\_id](#input\_stacklet\_external\_id) | ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet | `string` | n/a | yes |
+| <a name="input_stacklet_external_id"></a> [stacklet\_external\_id](#input\_stacklet\_external\_id) | ID of the Stacklet deployment to restrict what can assume the roles - Provided by Stacklet | `string` | n/a | yes |
 | <a name="input_stacklet_platform_role_arn"></a> [stacklet\_platform\_role\_arn](#input\_stacklet\_platform\_role\_arn) | ARN for the role used by Platform - Provided by Stacklet | `string` | n/a | yes |
 
 ## Outputs
