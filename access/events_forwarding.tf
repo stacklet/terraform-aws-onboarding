@@ -54,7 +54,7 @@ resource "aws_cloudwatch_event_target" "forward" {
 
   target_id = "${var.prefix}-event-forward"
   rule      = aws_cloudwatch_event_rule.forward[0].name
-  arn       = var.stacklet_event_bus_arn
+  arn       = local.stacklet_event_bus_arn
   role_arn  = aws_iam_role.forward[0].arn
 }
 
@@ -89,7 +89,15 @@ resource "aws_iam_role_policy" "forward" {
 
 data "aws_iam_policy_document" "forward" {
   statement {
-    actions   = ["events:PutEvents"]
-    resources = [var.stacklet_event_bus_arn]
+    actions = ["events:PutEvents"]
+    resources = [
+      provider::aws::arn_build(
+        data.aws_partition.current.partition,
+        "events",
+        "*",
+        var.stacklet_destination_account_id,
+        "event-bus/default"
+      )
+    ]
   }
 }
