@@ -21,7 +21,7 @@ variable "stacklet_target_event_bus_name" {
 }
 
 variable "stacklet_external_id" {
-  description = "ID of the Stacklet delpoyment to restrict what can assume the roles - Provided by Stacklet"
+  description = "ID of the Stacklet deployment to restrict what can assume the roles - Provided by Stacklet"
   type        = string
 }
 
@@ -42,7 +42,7 @@ variable "iam_path" {
 }
 
 variable "iam_region" {
-  description = "Region where IAM resouces should be created. If you don't use us-east-1, set this to a region you do use."
+  description = "Region where IAM resources should be created. If you don't use us-east-1, set this to a region you do use."
   type        = string
   default     = "us-east-1"
 }
