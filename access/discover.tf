@@ -1,6 +1,4 @@
 resource "aws_iam_role" "discover" {
-  count = local.create_iam_resources ? 1 : 0
-
   name               = "${var.resource_prefix}-discover"
   description        = "Read-Only Resource Collection for ${var.resource_prefix} Stacklet deployment"
   path               = var.iam_path
@@ -23,16 +21,12 @@ data "aws_iam_policy_document" "discover_assume" {
 }
 
 resource "aws_iam_role_policy_attachments_exclusive" "discover" {
-  count = local.create_iam_resources ? 1 : 0
-
-  role_name   = aws_iam_role.discover[0].name
+  role_name   = aws_iam_role.discover.name
   policy_arns = [data.aws_iam_policy.readonly_access.arn]
 }
 
 resource "aws_iam_role_policy" "discover_describe_augments" {
-  count = local.create_iam_resources ? 1 : 0
-
   name   = "DescribeAugments"
-  role   = aws_iam_role.discover[0].id
+  role   = aws_iam_role.discover.id
   policy = data.aws_iam_policy_document.describe_augments.json
 }
