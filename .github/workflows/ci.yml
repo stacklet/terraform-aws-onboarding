@@ -16,27 +16,28 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set tool versions
-        uses: wistia/parse-tool-versions@v1.0
+        uses: wistia/parse-tool-versions@v2.1.1
         with:
           prefix: TOOL_VERSION_
+
+      - name: Setup Just
+        uses: extractions/setup-just@v3
+        with:
+          just-version: ${{ env.TOOL_VERSION_JUST }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TOOL_VERSION_TERRAFORM }}
 
-      - name: Check formatting
-        run: |
-          terraform fmt -recursive -check
-
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
         with:
           tflint_version: ${{ env.TOOL_VERSION_TFLINT }}
 
-      - name: Run TFLint
+      - name: Lint Terraform files
         run: |
-          tflint -f compact --recursive
+          just lint
 
   lint-docs:
     runs-on: ubuntu-latest

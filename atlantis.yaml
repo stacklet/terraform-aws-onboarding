@@ -41,8 +41,7 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
-            cp ../atlantis/dev/${PROJECT_NAME}-backend.tf backend.tf
+            cp -a ../atlantis/dev/${PROJECT_NAME}/* .
         - init
         - plan
 
@@ -61,6 +60,5 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            cp ../atlantis/dev/${PROJECT_NAME}-settings.auto.tfvars settings.auto.tfvars
-            cp ../atlantis/dev/${PROJECT_NAME}-backend.tf backend.tf
+            cp -a ../atlantis/dev/${PROJECT_NAME}/* .
         - apply

@@ -1,37 +1,37 @@
 variable "stacklet_assetdb_role_arn" {
-  description = "ARN for the role used by AssetDB - Provided by Stacklet"
+  description = "ARN for the role used by AssetDB - Provided by Stacklet."
   type        = string
 }
 
 variable "stacklet_execution_role_arn" {
-  description = "ARN for the role used by policies Execution - Provided by Stacklet"
+  description = "ARN for the role used by policies Execution - Provided by Stacklet."
   type        = string
 }
 
 variable "stacklet_destination_account_id" {
-  description = "Destination account for event forwarding - Provided by Stacklet"
+  description = "Destination account for event forwarding - Provided by Stacklet."
   type        = string
 }
 
 
 variable "stacklet_target_event_bus_name" {
-  description = "Target event bus for event forwarding - Provided by Stacklet"
+  description = "Target event bus for event forwarding - Provided by Stacklet."
   type        = string
   default     = "default"
 }
 
 variable "stacklet_external_id" {
-  description = "ID of the Stacklet deployment to restrict what can assume the roles - Provided by Stacklet"
+  description = "ID of the Stacklet deployment to restrict what can assume the roles - Provided by Stacklet."
   type        = string
 }
 
 variable "prefix" {
-  description = "An arbitrary prefix pretended to names of created resources"
+  description = "An arbitrary prefix prepended to names of created resources."
   type        = string
 }
 
 variable "iam_path" {
-  description = "A path for IAM created IAM roles. If set, it must include leading and trailing slashes"
+  description = "A path for created IAM roles. If set, it must include leading and trailing slashes."
   type        = string
   default     = "/"
 

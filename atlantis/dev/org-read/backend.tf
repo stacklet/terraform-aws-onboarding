@@ -5,4 +5,6 @@ terraform {
     region  = "us-east-2"
     profile = "Test-Runner"
   }
+
+  required_version = "~> 1.11.3"
 }
