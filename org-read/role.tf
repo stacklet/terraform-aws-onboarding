@@ -1,6 +1,6 @@
 resource "aws_iam_role" "org_read" {
-  name               = "${var.prefix}-org-read"
-  description        = "Access to read accounts information for ${var.prefix} Stacklet deployment"
+  name               = "${var.resource_prefix}-org-read"
+  description        = "Access to read accounts information for ${var.resource_prefix} Stacklet deployment"
   path               = var.iam_path
   assume_role_policy = data.aws_iam_policy_document.org_read_assume.json
 }
