@@ -11,13 +11,13 @@ This modules adds an IAM role to allow Stacklet to discovery accounts in the org
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.94.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.94.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.0.0 |
 
 ## Modules
 
@@ -27,12 +27,12 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_iam_role.org_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
-| [aws_iam_role_policy.tags_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy_attachments_exclusive.org_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
-| [aws_iam_policy.org_readonly_access](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy) | data source |
-| [aws_iam_policy_document.org_read_assume](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.tags_read](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_role.org_read](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy.tags_read](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy_attachments_exclusive.org_read](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_iam_policy.org_readonly_access](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy) | data source |
+| [aws_iam_policy_document.org_read_assume](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.tags_read](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
