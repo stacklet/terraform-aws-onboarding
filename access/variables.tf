@@ -25,7 +25,7 @@ variable "stacklet_external_id" {
   type        = string
 }
 
-variable "prefix" {
+variable "resource_prefix" {
   description = "An arbitrary prefix prepended to names of created resources."
   type        = string
 }

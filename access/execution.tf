@@ -1,8 +1,8 @@
 resource "aws_iam_role" "execution" {
   count = local.create_iam_resources ? 1 : 0
 
-  name               = "${var.prefix}-execution"
-  description        = "Execution for ${var.prefix} Stacklet deployment"
+  name               = "${var.resource_prefix}-execution"
+  description        = "Execution for ${var.resource_prefix} Stacklet deployment"
   path               = var.iam_path
   assume_role_policy = data.aws_iam_policy_document.execution_assume.json
 }
@@ -41,8 +41,8 @@ resource "aws_iam_role_policy" "execution_describe_augments" {
 resource "aws_iam_role" "execution_extra" {
   for_each = local.execution_extra_roles
 
-  name               = "${var.prefix}-execution-${each.key}"
-  description        = "Execution for ${var.prefix} Stacklet deployment"
+  name               = "${var.resource_prefix}-execution-${each.key}"
+  description        = "Execution for ${var.resource_prefix} Stacklet deployment"
   path               = var.iam_path
   assume_role_policy = data.aws_iam_policy_document.execution_assume.json
 }

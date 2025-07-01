@@ -1,8 +1,8 @@
 resource "aws_cloudwatch_event_rule" "forward" {
   count = local.different_target_account ? 1 : 0
 
-  name        = "${var.prefix}-event-forward"
-  description = "Event forwarding for ${var.prefix} Stacklet deployment"
+  name        = "${var.resource_prefix}-event-forward"
+  description = "Event forwarding for ${var.resource_prefix} Stacklet deployment"
   event_pattern = jsonencode({
     "$or" = [
       # Matches for cloudtrail mode
@@ -52,7 +52,7 @@ resource "aws_cloudwatch_event_rule" "forward" {
 resource "aws_cloudwatch_event_target" "forward" {
   count = local.different_target_account ? 1 : 0
 
-  target_id = "${var.prefix}-event-forward"
+  target_id = "${var.resource_prefix}-event-forward"
   rule      = aws_cloudwatch_event_rule.forward[0].name
   arn       = local.stacklet_event_bus_arn
   role_arn  = aws_iam_role.forward[0].arn
@@ -63,8 +63,8 @@ resource "aws_cloudwatch_event_target" "forward" {
 resource "aws_iam_role" "forward" {
   count = local.create_forward_role ? 1 : 0
 
-  name               = "${var.prefix}-forward"
-  description        = "Event forwarding for ${var.prefix} Stacklet deployment"
+  name               = "${var.resource_prefix}-forward"
+  description        = "Event forwarding for ${var.resource_prefix} Stacklet deployment"
   path               = var.iam_path
   assume_role_policy = data.aws_iam_policy_document.forward_assume.json
 }

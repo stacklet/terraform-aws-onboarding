@@ -9,13 +9,13 @@ AWS account.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.94.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.94.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.0.0 |
 
 ## Modules
 
@@ -25,31 +25,31 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_cloudwatch_event_rule.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/cloudwatch_event_rule) | resource |
-| [aws_cloudwatch_event_target.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/cloudwatch_event_target) | resource |
-| [aws_iam_role.discover](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
-| [aws_iam_role.execution](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
-| [aws_iam_role.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
-| [aws_iam_role.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role) | resource |
-| [aws_iam_role_policy.discover_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy.execution_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy.execution_extra_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy) | resource |
-| [aws_iam_role_policy_attachments_exclusive.discover](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
-| [aws_iam_role_policy_attachments_exclusive.execution](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
-| [aws_iam_role_policy_attachments_exclusive.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
-| [aws_arn.stacklet_assetdb_role_arn](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/arn) | data source |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/caller_identity) | data source |
-| [aws_iam_policy.readonly_access](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy) | data source |
-| [aws_iam_policy_document.describe_augments](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.discover_assume](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.execution_assume](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.forward](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.forward_assume](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/iam_policy_document) | data source |
-| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/partition) | data source |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/5.94.0/docs/data-sources/region) | data source |
+| [aws_cloudwatch_event_rule.forward](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/cloudwatch_event_rule) | resource |
+| [aws_cloudwatch_event_target.forward](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/cloudwatch_event_target) | resource |
+| [aws_iam_role.discover](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role) | resource |
+| [aws_iam_role.execution](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role) | resource |
+| [aws_iam_role.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role) | resource |
+| [aws_iam_role.forward](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy.discover_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.execution_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.execution_extra_describe_augments](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.forward](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy_attachments_exclusive.discover](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_iam_role_policy_attachments_exclusive.execution](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_iam_role_policy_attachments_exclusive.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/resources/iam_role_policy_attachments_exclusive) | resource |
+| [aws_arn.stacklet_assetdb_role_arn](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/arn) | data source |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy.readonly_access](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy) | data source |
+| [aws_iam_policy_document.describe_augments](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.discover_assume](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.execution_assume](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.execution_extra](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.forward](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.forward_assume](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/iam_policy_document) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/partition) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/6.0.0/docs/data-sources/region) | data source |
 
 ## Inputs
 
@@ -58,7 +58,7 @@ No modules.
 | <a name="input_execution_extra_roles"></a> [execution\_extra\_roles](#input\_execution\_extra\_roles) | Additional roles to grant to Stacklet for policies execution.<br/><br/>If provided, this must be a map from the role name (which gets the prefix<br/>prepended) and a list of permissions to grant to the role in addition to the<br/>default read-only permissions. | `map(list(string))` | `{}` | no |
 | <a name="input_iam_path"></a> [iam\_path](#input\_iam\_path) | A path for created IAM roles. If set, it must include leading and trailing slashes. | `string` | `"/"` | no |
 | <a name="input_iam_region"></a> [iam\_region](#input\_iam\_region) | Region where IAM resources should be created. If you don't use us-east-1, set this to a region you do use. | `string` | `"us-east-1"` | no |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | An arbitrary prefix prepended to names of created resources. | `string` | n/a | yes |
+| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | An arbitrary prefix prepended to names of created resources. | `string` | n/a | yes |
 | <a name="input_stacklet_assetdb_role_arn"></a> [stacklet\_assetdb\_role\_arn](#input\_stacklet\_assetdb\_role\_arn) | ARN for the role used by AssetDB - Provided by Stacklet. | `string` | n/a | yes |
 | <a name="input_stacklet_destination_account_id"></a> [stacklet\_destination\_account\_id](#input\_stacklet\_destination\_account\_id) | Destination account for event forwarding - Provided by Stacklet. | `string` | n/a | yes |
 | <a name="input_stacklet_execution_role_arn"></a> [stacklet\_execution\_role\_arn](#input\_stacklet\_execution\_role\_arn) | ARN for the role used by policies Execution - Provided by Stacklet. | `string` | n/a | yes |
