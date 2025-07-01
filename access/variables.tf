@@ -8,12 +8,6 @@ variable "stacklet_execution_role_arn" {
   type        = string
 }
 
-variable "stacklet_destination_account_id" {
-  description = "Destination account for event forwarding - Provided by Stacklet."
-  type        = string
-}
-
-
 variable "stacklet_target_event_bus_name" {
   description = "Target event bus for event forwarding - Provided by Stacklet."
   type        = string
@@ -23,6 +17,16 @@ variable "stacklet_target_event_bus_name" {
 variable "stacklet_external_id" {
   description = "ID of the Stacklet deployment to restrict what can assume the roles - Provided by Stacklet."
   type        = string
+}
+
+variable "regions" {
+  description = "Regions in which resources should be created."
+  type        = list(string)
+
+  validation {
+    condition     = length(var.regions) > 0
+    error_message = "At least one region must be specified."
+  }
 }
 
 variable "resource_prefix" {
@@ -37,14 +41,8 @@ variable "iam_path" {
 
   validation {
     condition     = startswith(var.iam_path, "/") && endswith(var.iam_path, "/")
-    error_message = "IAM path must include leading and trailing slashes"
+    error_message = "IAM path must include leading and trailing slashes."
   }
-}
-
-variable "iam_region" {
-  description = "Region where IAM resources should be created. If you don't use us-east-1, set this to a region you do use."
-  type        = string
-  default     = "us-east-1"
 }
 
 variable "execution_extra_roles" {

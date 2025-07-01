@@ -1,5 +1,11 @@
+locals {
+  destination_account_id   = data.aws_arn.stacklet_assetdb_role_arn.account
+  different_target_account = data.aws_caller_identity.current.account_id != local.destination_account_id
+  event_regions            = local.different_target_account ? toset(var.regions) : toset([])
+}
+
 resource "aws_cloudwatch_event_rule" "forward" {
-  count = local.different_target_account ? 1 : 0
+  for_each = local.event_regions
 
   name        = "${var.resource_prefix}-event-forward"
   description = "Event forwarding for ${var.resource_prefix} Stacklet deployment"
@@ -47,21 +53,31 @@ resource "aws_cloudwatch_event_rule" "forward" {
       }
     ]
   })
+
+  region = each.key
 }
 
 resource "aws_cloudwatch_event_target" "forward" {
-  count = local.different_target_account ? 1 : 0
+  for_each = local.event_regions
 
   target_id = "${var.resource_prefix}-event-forward"
-  rule      = aws_cloudwatch_event_rule.forward[0].name
-  arn       = local.stacklet_event_bus_arn
-  role_arn  = aws_iam_role.forward[0].arn
+  rule      = aws_cloudwatch_event_rule.forward[each.key].name
+  arn = provider::aws::arn_build(
+    data.aws_partition.current.partition,
+    "events",
+    each.key,
+    local.destination_account_id,
+    "event-bus/${var.stacklet_target_event_bus_name}"
+  )
+  role_arn = aws_iam_role.forward[0].arn
+
+  region = each.key
 }
 
 # Event forwarding role
 
 resource "aws_iam_role" "forward" {
-  count = local.create_forward_role ? 1 : 0
+  count = local.different_target_account ? 1 : 0
 
   name               = "${var.resource_prefix}-forward"
   description        = "Event forwarding for ${var.resource_prefix} Stacklet deployment"
@@ -79,24 +95,34 @@ data "aws_iam_policy_document" "forward_assume" {
   }
 }
 
-resource "aws_iam_role_policy" "forward" {
-  count = local.create_forward_role ? 1 : 0
+resource "aws_iam_role_policy_attachment" "forward" {
+  for_each = local.event_regions
 
-  name   = "PutEventsNetForward"
-  role   = aws_iam_role.forward[0].id
-  policy = data.aws_iam_policy_document.forward.json
+  role       = aws_iam_role.forward[0].name
+  policy_arn = aws_iam_policy.forward[each.key].arn
+}
+
+resource "aws_iam_policy" "forward" {
+  for_each = local.event_regions
+
+  name        = "${var.resource_prefix}-forward-events-${each.key}"
+  description = "Forward events for ${var.resource_prefix} Stacklet deployment in region ${each.key}"
+  path        = var.iam_path
+  policy      = data.aws_iam_policy_document.forward[each.key].json
 }
 
 data "aws_iam_policy_document" "forward" {
+  for_each = local.event_regions
+
   statement {
     actions = ["events:PutEvents"]
     resources = [
       provider::aws::arn_build(
         data.aws_partition.current.partition,
         "events",
-        "*",
-        var.stacklet_destination_account_id,
-        "event-bus/default"
+        each.key,
+        local.destination_account_id,
+        "event-bus/${var.stacklet_target_event_bus_name}"
       )
     ]
   }

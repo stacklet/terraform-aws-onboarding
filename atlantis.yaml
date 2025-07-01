@@ -5,24 +5,30 @@ parallel_plan: true
 parallel_apply: true
 
 projects:
-  - &common
-    name: .dummy
-    dir: .dummy
+  - name: access
+    dir: access
     workflow: dev
     terraform_version: v1.11.3
     autoplan:
       when_modified:
         - "*.tf*"
         - .terraform.lock.hcl
+        - ../atlantis/dev/access/**
     apply_requirements:
       - approved
       - mergeable
-  - <<: *common
-    name: access
-    dir: access
-  - <<: *common
-    name: org-read
+  - name: org-read
     dir: org-read
+    workflow: dev
+    terraform_version: v1.11.3
+    autoplan:
+      when_modified:
+        - "*.tf*"
+        - .terraform.lock.hcl
+        - ../atlantis/dev/org-read/**
+    apply_requirements:
+      - approved
+      - mergeable
 
 workflows:
   dev:
