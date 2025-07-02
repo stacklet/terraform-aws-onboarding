@@ -11,34 +11,9 @@ projects:
     dir: .
     autoplan:
       when_modified:
-        - "*.tf*"
-        - "*/*tf."
-        - "*/.terraform.lock.hcl"
+        - "**/*tf."
+        - "**/.terraform.lock.hcl"
         - "atlantis/dev/**"
-    apply_requirements:
-      - approved
-      - mergeable
-  - name: access
-    dir: access
-    workflow: dev
-    terraform_version: v1.11.3
-    autoplan:
-      when_modified:
-        - "*.tf*"
-        - .terraform.lock.hcl
-        - ../atlantis/dev/access/**
-    apply_requirements:
-      - approved
-      - mergeable
-  - name: org-read
-    dir: org-read
-    workflow: dev
-    terraform_version: v1.11.3
-    autoplan:
-      when_modified:
-        - "*.tf*"
-        - .terraform.lock.hcl
-        - ../atlantis/dev/org-read/**
     apply_requirements:
       - approved
       - mergeable
@@ -60,11 +35,7 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            if [ "$PROJECT_NAME" == dev ]; then
-              cp atlantis/dev/main.tf .
-            else
-              cp -a ../atlantis/dev/${PROJECT_NAME}/* .
-            fi
+            cp atlantis/dev/* .
         - init
         - plan
 
@@ -83,9 +54,5 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            if [ "$PROJECT_NAME" == dev ]; then
-              cp atlantis/dev/main.tf .
-            else
-              cp -a ../atlantis/dev/${PROJECT_NAME}/* .
-            fi
+            cp atlantis/dev/* .
         - apply

@@ -10,7 +10,7 @@ terraform {
 }
 
 locals {
-  resource_prefix = "atlantis-ci"
+  resource_prefix = "atlantis"
   regions         = ["us-east-1", "us-east-2"]
 
   # Use the QA deployment as target, to point to a different account.
