@@ -1,6 +1,7 @@
-stacklet_assetdb_role_arn   = "arn:aws:iam::880584957794:role/dev-collector"
-stacklet_execution_role_arn = "arn:aws:iam::880584957794:role/dev-stacklet-execution"
-stacklet_external_id        = "external-340c+b540,d21b/43b4:8979=2749@e0d3.13c4"
+# QA deployment, to point to a different account
+stacklet_assetdb_role_arn   = "arn:aws:iam::179874453562:role/qa-collector"
+stacklet_execution_role_arn = "arn:aws:iam::179874453562:role/qa-stacklet-execution"
+stacklet_external_id        = "b5748e1f-0fa5-47c2-b9e2-84108424dd6a"
 
 resource_prefix = "atlantis"
 regions         = ["us-east-1", "us-east-2"]
