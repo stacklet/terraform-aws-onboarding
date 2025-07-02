@@ -5,6 +5,19 @@ parallel_plan: true
 parallel_apply: true
 
 projects:
+  - name: dev
+    workflow: dev
+    terraform_version: v1.11.3
+    dir: .
+    autoplan:
+      when_modified:
+        - "*.tf*"
+        - "*/*tf."
+        - "*/.terraform.lock.hcl"
+        - "atlantis/dev/**"
+    apply_requirements:
+      - approved
+      - mergeable
   - name: access
     dir: access
     workflow: dev
@@ -47,7 +60,11 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            cp -a ../atlantis/dev/${PROJECT_NAME}/* .
+            if [ "$PROJECT_NAME" == dev ]; then
+              cp atlantis/dev/main.tf .
+            else
+              cp -a ../atlantis/dev/${PROJECT_NAME}/* .
+            fi
         - init
         - plan
 
@@ -66,5 +83,9 @@ workflows:
             name: TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE
             value: "true"
         - run: |
-            cp -a ../atlantis/dev/${PROJECT_NAME}/* .
+            if [ "$PROJECT_NAME" == dev ]; then
+              cp atlantis/dev/main.tf .
+            else
+              cp -a ../atlantis/dev/${PROJECT_NAME}/* .
+            fi
         - apply
