@@ -11,9 +11,9 @@ projects:
     dir: .
     autoplan:
       when_modified:
-        - "**/*tf."
+        - "**/*.tf*"
         - "**/.terraform.lock.hcl"
-        - "atlantis/dev/**"
+        - "atlantis/dev/*"
     apply_requirements:
       - approved
       - mergeable
